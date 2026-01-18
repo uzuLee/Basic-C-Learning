@@ -22,7 +22,7 @@ export const curriculum: Chapter[] = [
         code: `#include <stdio.h> // 표준 입출력 헤더
 
 int main(void) {
-    printf("Hello, World!\n"); // 출력
+    printf("Hello, World!\\n"); // 출력
     return 0; // 프로그램 종료 (정상)
 }`
       },
