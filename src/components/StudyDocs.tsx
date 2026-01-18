@@ -112,6 +112,33 @@ export default function StudyDocs({ onExit }: StudyDocsProps) {
                                 {section.content}
                             </p>
 
+                            {section.table && (
+                                <div className="overflow-x-auto my-6 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm">
+                                    <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 text-sm">
+                                        <thead className="bg-slate-50 dark:bg-slate-900/50">
+                                            <tr>
+                                                {section.table.headers.map((header, hIdx) => (
+                                                    <th key={hIdx} className="px-6 py-3 text-left font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider">
+                                                        {header}
+                                                    </th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-800">
+                                            {section.table.rows.map((row, rIdx) => (
+                                                <tr key={rIdx} className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                                                    {row.map((cell, cIdx) => (
+                                                        <td key={cIdx} className="px-6 py-4 text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                                            {cell}
+                                                        </td>
+                                                    ))}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            )}
+
                             {section.code && (
                                 <div className="relative group rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
                                     <div className="absolute top-0 right-0 p-2 opacity-50 text-xs text-white font-mono">C Language</div>
